@@ -1,6 +1,6 @@
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "gbpbackend-production-618a.up.railway.app/api";
+  "https://gbpbackend-production-618a.up.railway.app/api";
 /*
  * GET all locations
  */
