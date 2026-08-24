@@ -1,33 +1,22 @@
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "http://localhost:5000/api";
-
+  "gbpbackend-production-618a.up.railway.app/api";
 /*
  * GET all locations
  */
-export async function getLocations(
-  token
-) {
-  const response = await fetch(
-    `${API_BASE_URL}/locations`,
-    {
-      method: "GET",
+export async function getLocations(token) {
+  const response = await fetch(`${API_BASE_URL}/locations`, {
+    method: "GET",
 
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
-  const data = await response
-    .json()
-    .catch(() => ({}));
+  const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    throw new Error(
-      data.message ||
-        "Unable to load locations."
-    );
+    throw new Error(data.message || "Unable to load locations.");
   }
 
   return data;
@@ -36,30 +25,19 @@ export async function getLocations(
 /*
  * GET single location
  */
-export async function getLocationById(
-  locationId,
-  token
-) {
-  const response = await fetch(
-    `${API_BASE_URL}/locations/${locationId}`,
-    {
-      method: "GET",
+export async function getLocationById(locationId, token) {
+  const response = await fetch(`${API_BASE_URL}/locations/${locationId}`, {
+    method: "GET",
 
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
-  const data = await response
-    .json()
-    .catch(() => ({}));
+  const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    throw new Error(
-      data.message ||
-        "Unable to load location."
-    );
+    throw new Error(data.message || "Unable to load location.");
   }
 
   return data;
@@ -68,38 +46,23 @@ export async function getLocationById(
 /*
  * POST location
  */
-export async function createLocation(
-  locationData,
-  token
-) {
-  const response = await fetch(
-    `${API_BASE_URL}/locations`,
-    {
-      method: "POST",
+export async function createLocation(locationData, token) {
+  const response = await fetch(`${API_BASE_URL}/locations`, {
+    method: "POST",
 
-      headers: {
-        "Content-Type":
-          "application/json",
+    headers: {
+      "Content-Type": "application/json",
 
-        Authorization:
-          `Bearer ${token}`,
-      },
+      Authorization: `Bearer ${token}`,
+    },
 
-      body: JSON.stringify(
-        locationData
-      ),
-    }
-  );
+    body: JSON.stringify(locationData),
+  });
 
-  const data = await response
-    .json()
-    .catch(() => ({}));
+  const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    throw new Error(
-      data.message ||
-        "Unable to add location."
-    );
+    throw new Error(data.message || "Unable to add location.");
   }
 
   return data;
@@ -108,39 +71,23 @@ export async function createLocation(
 /*
  * PUT location
  */
-export async function updateLocation(
-  locationId,
-  locationData,
-  token
-) {
-  const response = await fetch(
-    `${API_BASE_URL}/locations/${locationId}`,
-    {
-      method: "PUT",
+export async function updateLocation(locationId, locationData, token) {
+  const response = await fetch(`${API_BASE_URL}/locations/${locationId}`, {
+    method: "PUT",
 
-      headers: {
-        "Content-Type":
-          "application/json",
+    headers: {
+      "Content-Type": "application/json",
 
-        Authorization:
-          `Bearer ${token}`,
-      },
+      Authorization: `Bearer ${token}`,
+    },
 
-      body: JSON.stringify(
-        locationData
-      ),
-    }
-  );
+    body: JSON.stringify(locationData),
+  });
 
-  const data = await response
-    .json()
-    .catch(() => ({}));
+  const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    throw new Error(
-      data.message ||
-        "Unable to update location."
-    );
+    throw new Error(data.message || "Unable to update location.");
   }
 
   return data;
@@ -149,31 +96,19 @@ export async function updateLocation(
 /*
  * DELETE location
  */
-export async function deleteLocation(
-  locationId,
-  token
-) {
-  const response = await fetch(
-    `${API_BASE_URL}/locations/${locationId}`,
-    {
-      method: "DELETE",
+export async function deleteLocation(locationId, token) {
+  const response = await fetch(`${API_BASE_URL}/locations/${locationId}`, {
+    method: "DELETE",
 
-      headers: {
-        Authorization:
-          `Bearer ${token}`,
-      },
-    }
-  );
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
-  const data = await response
-    .json()
-    .catch(() => ({}));
+  const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    throw new Error(
-      data.message ||
-        "Unable to delete location."
-    );
+    throw new Error(data.message || "Unable to delete location.");
   }
 
   return data;

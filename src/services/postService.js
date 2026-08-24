@@ -1,5 +1,6 @@
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+  process.env.NEXT_PUBLIC_API_URL ||
+  "gbpbackend-production-618a.up.railway.app/api";
 
 /*
  * Helper to build authorization headers.
